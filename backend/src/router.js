@@ -22,8 +22,8 @@ router.get('/Answers/:idhelp', AnswerController.index)
 //routes for like and dislike
 router.post('/Like/:model/:id', LikeController.store);
 //routes for tags
-router.post('/Tag', AnswerController.store);
-router.get('/Tags', AnswerController.index)
+router.post('/Tag', TagController.store);
+router.get('/Tags', TagController.index)
 
 
 module.exports = router;

@@ -7,7 +7,7 @@ module.exports = {
         return res.json(tag);
     },
     async index(req, res){
-        const tags = await Tag.find({name: 1});
+        const tags = await Tag.find().sort({name: 1});
 
         return res.json(tags);
     }
