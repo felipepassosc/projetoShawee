@@ -3,19 +3,37 @@ module.exports = {
     async store(req, res) {
 
         const { model, id } = req.params;
+        const { iduser } = req.headers;
+
         const Model = require(`../models/${model}`);
 
-        const { iduser } = req.headers;
-    
-        const loggedUser = await Model.findById(iduser);
 
-        console.log(loggedUser);
+        if(model == 'User')
+        {
+            const loggedUser = await Model.findById(iduser);
     
-        loggedUser.likes.push(id);
-    
-        loggedUser.save();
-    
-        return res.json(loggedDev);     
+            if (loggedUser.likes.find( like => like == id)){
+                return res.json('já deu like');
+            }
 
+            loggedUser.likes.push(id);
+    
+            loggedUser.save();
+    
+            return res.json(await Model.findById(id));     
+        }
+        else{
+            const Answer = await Model.findById(id);
+
+            if (Answer.likes.find( like => like == iduser)){
+                return res.json('já deu like nessa resposta');
+            }
+
+            Answer.likes.push(iduser);
+    
+            Answer.save();
+    
+            return res.json(await Model.findById(id));    
+        }
     }
 }
