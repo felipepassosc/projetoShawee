@@ -1,17 +1,23 @@
-const mongoose = require('mongoose');
-
-const help = mongoose.model('Help');
+const help = require('../models/Help');
 
 module.exports = {
     //Listar
     async index(req, res){
-        const Help = await help.find();
+        const Help = await help.find().sort({createdAt: -1});
 
         return res.json(Help);
     },
     //Criar
     async store(req, res){
-        const Help = await help.create(req.body);
+        const { title, description, tags } = req.body;
+        const { iduser, nameuser } = req.headers;
+        const Help = await help.create({
+                title,
+                description,
+                iduser,
+                nameuser,
+                tags,
+        });
 
         return res.json(Help);
     },

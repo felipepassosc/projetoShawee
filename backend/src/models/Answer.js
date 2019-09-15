@@ -1,15 +1,11 @@
 const { Schema, model } = require('mongoose');
 
 const AnswerSchema = new Schema({
-    title: {
-        type: String,
-        required: true,
-    },
     description: {
         type: String,
         require: true,
     },
-    id_help: {
+    idHelp: {
         type: Schema.Types.ObjectId,
         required: true,
     },

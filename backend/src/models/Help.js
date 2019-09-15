@@ -7,17 +7,18 @@ const HelpSchema = new Schema({
     },
     description: {
         type: String,
-        require: true,
-    },
-    id_user: {
-        type: Schema.Types.ObjectId,
         required: true,
     },
-    likes: [{
-        type: Schema.Types.ObjectId,
-    }],
-    dislikes: [{
-        type: Schema.Types.ObjectId,
+    iduser:{
+        type: String,
+        required: true,
+    },
+    nameuser:{
+        type: String,
+        required: true,
+    },
+    tags: [{
+        type: String,
     }],
     createdAt: {
         type: Date,

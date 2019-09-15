@@ -1,24 +1,28 @@
-const mongoose = require('mongoose');
-
-const answer = mongoose.model('Answer');
+const answer = require('../models/Answer');
 
 module.exports = {
     //Listar
     async index(req, res){
-        const Answer = await answer.find();
+        const { idhelp } = req.params;
+        const Answer = await answer.find().sort({createdAt: -1});
 
-        return res.json(Answer);
+        return res.json(Answer.filter(ans => ans.idHelp == idhelp));
     },
     //Criar
     async store(req, res){
-        const Answer = await answer.create(req.body);
+        const { idHelp } = req.params;
+        const { description } = req.body;
+        const Answer = await answer.create({
+            description,
+            idHelp,
+        });
 
         return res.json(Answer);
     },
     //Pegar dado especifico
     async show(req, res){
         let { id } = req.params;
-        const Answer = await answer.findById(id);
+        const Answer = await answer.find(id);
 
         return res.json(Answer);
     },

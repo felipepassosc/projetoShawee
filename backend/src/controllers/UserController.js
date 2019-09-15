@@ -1,6 +1,4 @@
-const mongoose = require('mongoose');
-
-const user = mongoose.model('User');
+const user = require('../models/User');
 
 module.exports = {
     //Listar
@@ -12,7 +10,6 @@ module.exports = {
     //Criar
     async store(req, res){
         const User = await user.create(req.body);
-
         return res.json(User);
     },
     //Pegar dado especifico

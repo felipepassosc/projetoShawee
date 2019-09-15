@@ -1,16 +1,19 @@
-const express = require('express');
-const mongoose = require('mongoose');
+const express = require("express");
+var bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+
+const port = process.env.PORT || 3000;
 
 const server = express();
-server.use(express.json());
+server.use(bodyParser.json());
+const routes = require("./src/router");
 
 //Config. mongoose///
 mongoose.connect("mongodb://localhost:27017/projetoShawee", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true, 
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
-require('./src/models/User');
 
-server.use(require('./src/router'));
+server.use(routes);
 
-server.listen(8080);
+server.listen(port, console.log(`Running on port ${port}`));
