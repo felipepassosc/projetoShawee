@@ -5,6 +5,7 @@ const HelpController = require('./controllers/HelpController');
 const UserController = require('./controllers/UserController');
 const AnswerController = require('./controllers/AnswerController');
 const LikeController = require('./controllers/LikeController');
+const TagController = require('./controllers/TagController');
 
 //routes for user
 router.post('/User', UserController.store);
@@ -20,7 +21,9 @@ router.post('/Answer/:idHelp', AnswerController.store);
 router.get('/Answers/:idhelp', AnswerController.index)
 //routes for like and dislike
 router.post('/Like/:model/:id', LikeController.store);
-
+//routes for tags
+router.post('/Tag', AnswerController.store);
+router.get('/Tags', AnswerController.index)
 
 
 module.exports = router;
