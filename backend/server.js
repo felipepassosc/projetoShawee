@@ -9,7 +9,7 @@ server.use(bodyParser.json());
 const routes = require("./src/router");
 
 //Config. mongoose///
-mongoose.connect("mongodb://localhost:27017/projetoShawee", {
+mongoose.connect('mongodb+srv://projetoShawee:batata@cluster0-90pmp.mongodb.net/hackathon?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
