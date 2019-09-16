@@ -7,21 +7,19 @@ class Conteudo extends Component {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card mb-3">
-                            <div className="card-header">
+                            <div className="card-body">
                                 <div class="input-group">
-                                    <h5>Dê um título da pergunta</h5>
+                                    <h4>Dê um título da pergunta</h4>
                                 </div>
                                 <div class="input-group">
                                     <input type="text" class="form-control" aria-label="Quantia em Dollar (com ponto e duas casas decimais)" />
                                 </div>
-                            </div>
-                            <div className="card-body">
                                 <h4 className="card-title">Faça a pergunta </h4>
                                 <div class="form-group">
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
                                 <select class="form-control-lg">
-                                <p className="card-text">Escolha a #tag da pergunta</p>
+                                    <p className="card-text">Escolha a #tag da pergunta</p>
                                     <option className="text-primary">#React JS</option>
                                     <option className="text-success">#Node JS</option>
                                     <option className="text-info">#React Native</option>

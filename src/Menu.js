@@ -7,11 +7,11 @@ class Menu extends Component {
             <div className="row">
                 <div className="col-12">
                     <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <Link to="/perguntas" className="nav-link">Perguntas</Link>
-                        <Link to="/respostas" className="nav-link">Respostas</Link>
-                        <Link to="/perfil" className="nav-link">Perfil</Link>
-                        <Link to="/mensagens" className="nav-link">Mensagens</Link>
-                        <Link to="/configuracoes" className="nav-link">Configuracoes</Link>
+                        <Link to="/perguntas" className="nav-link text-dark"><h5>Perguntas</h5></Link>
+                        <Link to="/respostas" className="nav-link text-dark"><h5>Respostas</h5></Link>
+                        <Link to="/perfil" className="nav-link text-dark"><h5>Perfil</h5></Link>
+                        <Link to="/mensagens" className="nav-link text-dark"><h5>Mensagens</h5></Link>
+                        <Link to="/configuracoes" className="nav-link text-dark"><h5>Configuracoes</h5></Link>
                     </div>
                 </div>
             </div>
